@@ -49,7 +49,7 @@ while True:
         instrument2.serial.baudrate = 115200
         instrument2.serial.timeout = 1
 
-        data_dict2["ID"] = 2
+        data_dict2["ID"] = 3
         funciones.crear_dic(instrument2, keys, data_dict2, dir)
         funciones.enviar(ser, data_dict2)
 
@@ -63,6 +63,7 @@ while True:
 
     # Si existe un error envia un json vacio
     except Exception as e:
+        data_dict1["ID"] = 1
         funciones.vacio(keys, data_dict1)
         funciones.enviar(ser, data_dict1)
         print("\nError.")
