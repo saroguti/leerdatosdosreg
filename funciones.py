@@ -1,30 +1,17 @@
 import minimalmodbus, serial, datetime, json
 
-# Validar instrumento 1
+# Validar instrumento 
 
-def validar_instrumento1(puerto):
+def validar_instrumento(puerto, id):
     try:
         # Se crea instrumento para cada regulador
-        instrument1 = minimalmodbus.Instrument(puerto, 1, minimalmodbus.MODE_RTU)
+        instrument = minimalmodbus.Instrument(puerto, id, minimalmodbus.MODE_RTU)
     except minimalmodbus.ModbusException as e:
         return None
     except serial.SerialException as e:
         return None
     else:
-        return instrument1
-
-# Validar instrumento 2
-
-def validar_instrumento2(puerto):
-    try:
-        # Se crea instrumento para cada regulador
-        instrument2 = minimalmodbus.Instrument(puerto, 3, minimalmodbus.MODE_RTU)
-    except minimalmodbus.ModbusException as e:
-        return None
-    except serial.SerialException as e:
-        return None
-    else:
-        return instrument2
+        return instrument
 
 # Crear diccionario
 

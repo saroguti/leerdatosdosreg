@@ -21,8 +21,8 @@ data_dict2 = {}
 # Lectura de registros
 
 while True:
-    instrument1 = funciones.validar_instrumento1(puerto='COM8')
-    instrument2 = funciones.validar_instrumento2(puerto='COM8')
+    instrument1 = funciones.validar_instrumento(puerto='COM8', id=1)
+    instrument2 = funciones.validar_instrumento(puerto='COM8', id=3)
     # Intenta crear llenar el diccionario con los datos de los registros
     if instrument1 == None:
         funciones.vacio(keys, data_dict1)
