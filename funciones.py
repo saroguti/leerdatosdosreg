@@ -19,6 +19,7 @@ def crear_dic(instrument, keys, data_dict, dir):
     now = datetime.datetime.now()
     fecha_hora = now.strftime("%d/%m/%Y %H:%M:%S")
     data_dict["fecha_hora"] = fecha_hora
+    data_dict["ID"] = 1
             
     for i in range(len(dir)):
         try:
@@ -37,6 +38,7 @@ def vacio(keys, data_dict):
     now = datetime.datetime.now()
     fecha_hora = now.strftime("%d/%m/%Y %H:%M:%S")
     data_dict["fecha_hora"] = fecha_hora
+    data_dict["ID"] = 1
 
     for i in range(len(keys)):
         data_dict[keys[i]] = ""
