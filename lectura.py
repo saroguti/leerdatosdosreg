@@ -2,7 +2,7 @@ import time, serial, funciones
 
 # Configuracion del dispositivo
 
-ser = serial.Serial(port='COM10', baudrate=115200)
+ser = serial.Serial(port = 'COM10', baudrate = 115200)
 
 # Direcciones y claves
 
@@ -60,5 +60,4 @@ while True:
         print("\nError.")
         instrument1.serial.close()
         instrument2.serial.close()
-        ser.serial.close()
         time.sleep(0.08)
