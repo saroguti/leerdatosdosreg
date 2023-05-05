@@ -30,7 +30,7 @@ def crear_dic(instrument1, instrument2, keys1, keys2, data_dict, dir):
             else:
                 var1 = instrument1.read_register(dir[i], functioncode=4)/100
         except:
-            var = ""
+            var1 = ""
         data_dict[keys1[i]] = var1
 
     for i in range(len(dir)):
