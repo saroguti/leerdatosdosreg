@@ -2,15 +2,17 @@ import time, serial, funciones
 
 # Configuracion del dispositivo
 
-ser = serial.Serial(port='COM4', baudrate=115200)
+ser = serial.Serial(port='COM10', baudrate=115200)
 
 # Direcciones y claves
 
-keys1 = ["array_current1", "array_voltage1", "array_power1", "battery_voltage1", "battery_current1", "battery_SOC1", 
-        "battery_temp1", "regulator_temp1", "load_current1", "load_voltage1", "load_power1", "load_status1"]
+keys1 = ["array_current1", "array_voltage1", "array_power1", "battery_voltage1", 
+         "battery_current1", "battery_SOC1", "battery_temp1", "regulator_temp1", 
+         "load_current1", "load_voltage1", "load_power1", "load_status1"]
 
-keys2 = ["array_current2", "array_voltage2", "array_power2", "battery_voltage2", "battery_current2", "battery_SOC2", 
-        "battery_temp2", "regulator_temp2", "load_current2", "load_voltage2", "load_power2", "load_status2"]
+keys2 = ["array_current2", "array_voltage2", "array_power2", "battery_voltage2", 
+         "battery_current2", "battery_SOC2", "battery_temp2", "regulator_temp2", 
+         "load_current2", "load_voltage2", "load_power2", "load_status2"]
         
 dir = [0x3101, 0x3100, 0x3102, 0x331A, 0x331B, 0x311A, 
         0x3110, 0x3111, 0x310D, 0x310C, 0x310E, 0x3202]
@@ -43,7 +45,11 @@ while True:
 
         funciones.crear_dic(instrument1, instrument2, keys1, keys2, data_dict, dir)
 
+        funciones.enviar(ser, data_dict)
+
         print("\nEnviando datos...")
+
+        print("\n", data_dict)
         
         time.sleep(10)
 
