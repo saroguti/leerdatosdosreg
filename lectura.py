@@ -40,7 +40,6 @@ while True:
         time.sleep(0.08)
         continue
     try:
-       
         funciones.parametros(instrument1, instrument2)
 
         funciones.crear_dic(instrument1, instrument2, keys1, keys2, data_dict, dir)
@@ -61,4 +60,5 @@ while True:
         print("\nError.")
         instrument1.serial.close()
         instrument2.serial.close()
+        ser.serial.close()
         time.sleep(0.08)
