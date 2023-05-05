@@ -46,11 +46,11 @@ while True:
 
         funciones.enviar(ser, data_dict)
 
-        print("\nEnviando datos...")
+        #print("\nEnviando datos...")
 
-        print("\n", data_dict)
+        #print("\n", data_dict)
         
-        time.sleep(10)
+        time.sleep(0.08)
 
     # Si existe un error envia un json vacio
     except Exception as e:
