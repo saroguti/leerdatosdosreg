@@ -26,29 +26,26 @@ data_dict = {}
 while True:
     instrument1 = funciones.validar_instrumento(puerto='COM8', id=1)
     instrument2 = funciones.validar_instrumento(puerto='COM8', id=3)
+
     # Intenta crear llenar el diccionario con los datos de los registros
     if instrument1 == None:
         funciones.vacio(keys1, data_dict)
         funciones.enviar(ser, data_dict)
-        print("\nError.")
         time.sleep(0.08)
         continue
+
     elif instrument2 == None:
         funciones.vacio(keys2, data_dict)
         funciones.enviar(ser, data_dict)
-        print("\nError.")
         time.sleep(0.08)
         continue
+
     try:
         funciones.parametros(instrument1, instrument2)
 
         funciones.crear_dic(instrument1, instrument2, keys1, keys2, data_dict, dir)
 
         funciones.enviar(ser, data_dict)
-
-        #print("\nEnviando datos...")
-
-        #print("\n", data_dict)
         
         time.sleep(0.08)
 
@@ -57,7 +54,6 @@ while True:
         funciones.vacio(keys1, data_dict)
         funciones.vacio(keys2, data_dict)
         funciones.enviar(ser, data_dict)
-        print("\nError.")
         instrument1.serial.close()
         instrument2.serial.close()
         time.sleep(0.08)
